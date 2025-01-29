@@ -66,7 +66,7 @@ public class UrlController {
     public ResponseEntity<Void> redirectToOriginalUrl(@PathVariable String shortCode) {
         String originalUrl = urlService.getOriginalUrl(shortCode);
         
-        return ResponseEntity.status(HttpStatus.PERMANENT_REDIRECT)  // or HttpStatus.FOUND for temporary redirect
+        return ResponseEntity.status(HttpStatus.PERMANENT_REDIRECT)    // or HttpStatus.FOUND for temporary redirect
                             .header(HttpHeaders.LOCATION, originalUrl)
                             .build();
     }

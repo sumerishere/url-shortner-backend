@@ -27,6 +27,7 @@ public class UrlService {
         }
 
         UrlModel existingUrl = urlRepository.findByActualURL(actualUrl);
+        
         if (existingUrl != null) {
             return existingUrl;
         }
@@ -45,61 +46,6 @@ public class UrlService {
         return urlRepository.save(urlModel);
     }
     
-    
-    
-//    public UrlModel createShortUrl(String actualUrl) {
-//    	
-//        // Validate URL format
-//        if (!isValidUrl(actualUrl)) {
-//            throw new IllegalArgumentException("Invalid URL format");
-//        }
-//
-//        // Check if URL already exists
-//        UrlModel existingUrl = urlRepository.findByActualURL(actualUrl);
-//        if (existingUrl != null) {
-//            return existingUrl;
-//        }
-//        
-//        String shortCode = generateShortUrl();
-//        
-//        while (urlRepository.findByShortURL(shortCode) != null) {
-//            shortCode = generateShortUrl(); // Regenerate if collision occurs
-//        }
-//        
-//        UrlModel urlModel = new UrlModel();
-//        
-//        urlModel.setActualURL(actualUrl);
-//        urlModel.setShortURL(BASE_URL + shortCode); // Combine base URL with short code
-//        urlModel.setCreatedAt(LocalDateTime.now().toString());
-//        urlModel.setExpiryDate(LocalDateTime.now().plusDays(30).toString());
-//        
-//        return urlRepository.save(urlModel);
-//    }
-    
-    
-    
-    
-//    public String getOriginalUrl(String shortUrl) {
-//    	
-//        // Extract short code from full URL if necessary
-//        String shortCode = shortUrl;
-//        if (shortUrl.startsWith(BASE_URL)) {
-//            shortCode = shortUrl.substring(BASE_URL.length());
-//        }
-//
-//        UrlModel urlModel = urlRepository.findByShortURL(BASE_URL + shortCode);
-//        if (urlModel == null) {
-//            throw new RuntimeException("URL not found");
-//        }
-//        
-//        // Check if URL has expired
-//        LocalDateTime expiryDate = LocalDateTime.parse(urlModel.getExpiryDate());
-//        if (LocalDateTime.now().isAfter(expiryDate)) {
-//            throw new RuntimeException("URL has expired");
-//        }
-//        
-//        return urlModel.getActualURL();
-//    }
     
     private String generateShortUrl() {
     	

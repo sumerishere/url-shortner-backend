@@ -9,6 +9,7 @@ import com.url.model.UrlModel;
 public interface UrlRepository extends JpaRepository<UrlModel, Long>{
 	
 	UrlModel findByShortURL(String shortURL);
+	
 	UrlModel findByActualURL(String actualURL);
 	
 

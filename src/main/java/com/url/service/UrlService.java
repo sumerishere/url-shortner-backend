@@ -12,10 +12,10 @@ import com.url.repository.UrlRepository;
 @Service
 public class UrlService {
 	
-	@Autowired
-	UrlRepository urlRepository;
+    @Autowired
+    UrlRepository urlRepository;
 	
-	private static final String ALLOWED_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    private static final String ALLOWED_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static final int SHORT_URL_LENGTH = 6;
     private static final String BASE_URL = "http://short.ly/";
     
